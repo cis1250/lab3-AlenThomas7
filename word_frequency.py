@@ -53,4 +53,3 @@ for word in words:
 print("\nWord Frequencies:")
 for i in range(len(word_list)):
     print(f"{word_list[i]}: {frequency_list[i]}")
-   
