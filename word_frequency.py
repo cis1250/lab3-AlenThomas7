@@ -63,16 +63,16 @@ import string
 
 def is_sentence(text):
     text = text.strip()
-    if not isinstance(text, str) or not text.strip():
+    if not isinstance(text, str) or not text:
         return False
     if not text[0].isupper():
         return False
     if not (text.endswith(".") or text.endswith("!") or text.endswith("?")):
         return False
-    if not re.search(r'\w+', text):
+    # Instead of regex, just check that there's at least two words
+    if len(text.split()) < 2:
         return False
     return True
-
 
 print("DEBUG: Program started")
 
