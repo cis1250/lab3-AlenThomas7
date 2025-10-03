@@ -79,8 +79,8 @@ def is_sentence(text):
 user_sentence = input("Enter a sentence: ")
 
 while not is_sentence(user_sentence):
-    print("This does not meet the criteria for a sentence.")
-    user_sentence = input("Enter a sentence: ")
+ print("This does not meet the criteria for a sentence.")
+ user_sentence = input("Enter a sentence: ")
 
 print("✅ Sentence accepted!")
 
