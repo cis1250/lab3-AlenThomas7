@@ -63,7 +63,6 @@ import string
 
 # Function to check if input is a valid sentence
 def is_sentence(text):
-    text = text.strip()
     if not isinstance(text, str) or not text:
         return False
     if not text[0].isupper():
