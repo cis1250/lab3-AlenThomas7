@@ -11,6 +11,7 @@
 import re
 import string
 
+# Function to validate sentence
 def is_sentence(text):
     text = text.strip()
     if not isinstance(text, str) or not text:
@@ -23,18 +24,21 @@ def is_sentence(text):
         return False
     return True
 
+# Prompt user until valid sentence is entered
 user_sentence = input("Enter a sentence: ")
 
 while not is_sentence(user_sentence):
     print("This does not meet the criteria for a sentence.")
     user_sentence = input("Enter a sentence: ")
 
-print("Sentence accepted. Processing...")
-
+# Split sentence into words
 words = user_sentence.split()
+
+# Initialize lists
 word_list = []
 frequency_list = []
 
+# Count word frequencies using lists
 for word in words:
     cleaned = word.strip(string.punctuation).lower()
     if cleaned in word_list:
@@ -44,6 +48,7 @@ for word in words:
         word_list.append(cleaned)
         frequency_list.append(1)
 
+# Print results
 print("\nWord Frequencies:")
 for i in range(len(word_list)):
     print(f"{word_list[i]}: {frequency_list[i]}")
