@@ -106,4 +106,3 @@ for i in range(len(word_list)):
 input("\nPress Enter to exit...")
 
 
-input("\nPress Enter to exit...")   # keeps window open
