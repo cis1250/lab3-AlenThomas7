@@ -57,7 +57,9 @@
  #   print(f"{word_list[i]}: {frequency_list[i]}")
 import re
 
+
 def is_sentence(text):
+    text = text.strip()
     if not isinstance(text, str) or not text.strip():
         return False
     if not text[0].isupper():
