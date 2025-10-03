@@ -55,7 +55,6 @@
 #print("\nWord Frequencies:")
 #for i in range(len(word_list)):
  #   print(f"{word_list[i]}: {frequency_list[i]}")
-
 import re
 import string
 
@@ -75,18 +74,17 @@ def is_sentence(text):
 def clean_word(word):
     return word.strip(string.punctuation).lower()
 
-# Prompt user until a valid sentence is entered
+# Prompt user until valid sentence
 user_sentence = input("Enter a sentence: ")
 while not is_sentence(user_sentence):
     print("This does not meet the criteria for a sentence.")
     user_sentence = input("Enter a sentence: ")
 
-# Split sentence into words and initialize lists
+# --- WORD FREQUENCY PART STARTS HERE ---
 words_raw = user_sentence.split()
 words = []
 frequencies = []
 
-# Count word frequencies
 for word in words_raw:
     cleaned = clean_word(word)
     if cleaned in words:
@@ -96,7 +94,7 @@ for word in words_raw:
         words.append(cleaned)
         frequencies.append(1)
 
-# Print results
 print("\nWord Frequencies:")
 for i in range(len(words)):
     print(f"{words[i]}: {frequencies[i]}")
+
