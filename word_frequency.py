@@ -69,7 +69,7 @@ def is_sentence(text):
     if not text[0].isupper():
         print("DEBUG: Does not start with a capital letter")
         return False
-    if not re.search(r'[.!?]$', text):
+    if not re.search(r'[.!?]$', text.strip()):
         print("DEBUG: Does not end with ., !, or ?")
         return False
     if not re.search(r'\w+', text):
