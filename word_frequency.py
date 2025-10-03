@@ -41,8 +41,8 @@ words = user_sentence.split()
 word_list = []
 frequency_list = []
 
-for word in words:
-    cleaned = word.strip(string.punctuation).lower()
+#for word in words:
+cleaned = word.strip(string.punctuation).lower()
     if cleaned in word_list:
         index = word_list.index(cleaned)
         frequency_list[index] += 1
