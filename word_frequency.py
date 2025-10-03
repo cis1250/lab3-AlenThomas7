@@ -8,37 +8,42 @@
 # 4. Iterate through words and update frequencies
 
 
+
 import re
 import string
 
-# Function to validate sentence
-def is_sentence(text):
-    text = text.strip()
-    if not isinstance(text, str) or not text:
+#This is a function that checks if a text qualifies as a sentence. You do not need to modify this!
+#def is_sentence(text):
+    # Check if the text is not empty and is a string
+    if not isinstance(text, str) or not text.strip():
         return False
+
+    # Check for starting with a capital letter
     if not text[0].isupper():
         return False
+
+    # Check for ending punctuation
     if not re.search(r'[.!?]$', text):
         return False
+
+    # Check if it contains at least one word (non-whitespace characters)
     if not re.search(r'\w+', text):
         return False
+
     return True
 
-# Prompt user until valid sentence is entered
 user_sentence = input("Enter a sentence: ")
 
 while not is_sentence(user_sentence):
     print("This does not meet the criteria for a sentence.")
     user_sentence = input("Enter a sentence: ")
 
-# Split sentence into words
+print("Sentence accepted. Processing...")  # ← Add this line
+    
 words = user_sentence.split()
-
-# Initialize lists
 word_list = []
 frequency_list = []
 
-# Count word frequencies using lists
 for word in words:
     cleaned = word.strip(string.punctuation).lower()
     if cleaned in word_list:
@@ -52,3 +57,4 @@ for word in words:
 print("\nWord Frequencies:")
 for i in range(len(word_list)):
     print(f"{word_list[i]}: {frequency_list[i]}")
+
