@@ -57,10 +57,10 @@
     
 #input("\nPress Enter to exit...")
 
+
 import re
 import string
 
-# Function to check if text is a valid sentence
 def is_sentence(text):
     text = text.strip()
     if not isinstance(text, str) or not text.strip():
@@ -74,24 +74,27 @@ def is_sentence(text):
     return True
 
 
-# --- Main program ---
-print("Program started")
+print("DEBUG: Program started")
 
 user_sentence = input("Enter a sentence: ")
+print("DEBUG: You typed:", repr(user_sentence))
 
 while not is_sentence(user_sentence):
-    print("This does not meet the criteria for a sentence.")
+    print("DEBUG: Failed is_sentence check")
     user_sentence = input("Enter a sentence: ")
+    print("DEBUG: You typed:", repr(user_sentence))
 
-print("DEBUG: Made it past the while loop")
+print("DEBUG: Passed is_sentence check")
 
-# Word frequency calculation
 words = user_sentence.split()
+print("DEBUG: Words after split ->", words)
+
 word_list = []
 frequency_list = []
 
 for word in words:
     cleaned = word.strip(string.punctuation).lower()
+    print("DEBUG: Processing word ->", cleaned)
     if cleaned in word_list:
         index = word_list.index(cleaned)
         frequency_list[index] += 1
@@ -99,10 +102,14 @@ for word in words:
         word_list.append(cleaned)
         frequency_list.append(1)
 
+print("DEBUG: Word list ->", word_list)
+print("DEBUG: Frequency list ->", frequency_list)
+
 print("\nWord Frequencies:")
 for i in range(len(word_list)):
     print(f"{word_list[i]}: {frequency_list[i]}")
 
 input("\nPress Enter to exit...")
+
 
 
