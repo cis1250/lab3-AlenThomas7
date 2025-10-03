@@ -12,6 +12,7 @@ import string
 
 #This is a function that checks if a text qualifies as a sentence. You do not need to modify this!
 def is_sentence(text):
+    text = text.strip()
     # Check if the text is not empty and is a string
     if not isinstance(text, str) or not text.strip():
         return False
