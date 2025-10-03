@@ -61,6 +61,7 @@
 import re
 import string
 
+# Function to check if input is a valid sentence
 def is_sentence(text):
     text = text.strip()
     if not isinstance(text, str) or not text:
@@ -69,32 +70,27 @@ def is_sentence(text):
         return False
     if not (text.endswith(".") or text.endswith("!") or text.endswith("?")):
         return False
-    # Instead of regex, just check that there's at least two words
+    # Require at least 2 words
     if len(text.split()) < 2:
         return False
     return True
 
-print("DEBUG: Program started")
-
+# Main program
 user_sentence = input("Enter a sentence: ")
-print("DEBUG: You typed:", repr(user_sentence))
 
 while not is_sentence(user_sentence):
-    print("DEBUG: Failed is_sentence check")
+    print("This does not meet the criteria for a sentence.")
     user_sentence = input("Enter a sentence: ")
-    print("DEBUG: You typed:", repr(user_sentence))
 
-print("DEBUG: Passed is_sentence check")
+print("✅ Sentence accepted!")
 
+# Word frequency logic
 words = user_sentence.split()
-print("DEBUG: Words after split ->", words)
-
 word_list = []
 frequency_list = []
 
 for word in words:
     cleaned = word.strip(string.punctuation).lower()
-    print("DEBUG: Processing word ->", cleaned)
     if cleaned in word_list:
         index = word_list.index(cleaned)
         frequency_list[index] += 1
@@ -102,14 +98,13 @@ for word in words:
         word_list.append(cleaned)
         frequency_list.append(1)
 
-print("DEBUG: Word list ->", word_list)
-print("DEBUG: Frequency list ->", frequency_list)
-
+# Print results
 print("\nWord Frequencies:")
 for i in range(len(word_list)):
     print(f"{word_list[i]}: {frequency_list[i]}")
 
 input("\nPress Enter to exit...")
+
 
 
 
