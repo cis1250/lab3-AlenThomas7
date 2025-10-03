@@ -56,7 +56,6 @@
 #for i in range(len(word_list)):
  #   print(f"{word_list[i]}: {frequency_list[i]}")
 import re
-import string
 
 def is_sentence(text):
     if not isinstance(text, str) or not text.strip():
@@ -70,26 +69,5 @@ def is_sentence(text):
     return True
 
 user_sentence = input("Enter a sentence: ")
-
-while not is_sentence(user_sentence):
-    print("This does not meet the criteria for a sentence.")
-    user_sentence = input("Enter a sentence: ")
-
-print("Sentence accepted. Processing...")
-
-words = user_sentence.split()
-word_list = []
-frequency_list = []
-
-for word in words:
-    cleaned = word.strip(string.punctuation).lower()
-    if cleaned in word_list:
-        index = word_list.index(cleaned)
-        frequency_list[index] += 1
-    else:
-        word_list.append(cleaned)
-        frequency_list.append(1)
-
-print("\nWord Frequencies:")
-for i in range(len(word_list)):
-    print(f"{word_list[i]}: {frequency_list[i]}")
+print("Raw input:", user_sentence)
+print("Is sentence valid?", is_sentence(user_sentence))
