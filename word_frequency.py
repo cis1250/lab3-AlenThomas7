@@ -64,21 +64,18 @@ import string
 def is_sentence(text):
     text = text.strip()
     if not isinstance(text, str) or not text.strip():
-        print("DEBUG: Not a valid string")
         return False
     if not text[0].isupper():
-        print("DEBUG: Does not start with a capital letter")
         return False
-    if not re.search(r'[.!?]$', text.strip()):
-        print("DEBUG: Does not end with ., !, or ?")
+    if not (text.endswith(".") or text.endswith("!") or text.endswith("?")):
         return False
     if not re.search(r'\w+', text):
-        print("DEBUG: Does not contain a word")
         return False
     return True
 
 
-print("Program started")   # DEBUG
+# --- Main program ---
+print("Program started")
 
 user_sentence = input("Enter a sentence: ")
 
@@ -86,7 +83,7 @@ while not is_sentence(user_sentence):
     print("This does not meet the criteria for a sentence.")
     user_sentence = input("Enter a sentence: ")
 
-print("DEBUG: Made it past the while loop")   # DEBUG
+print("DEBUG: Made it past the while loop")
 
 # Word frequency calculation
 words = user_sentence.split()
@@ -105,5 +102,8 @@ for word in words:
 print("\nWord Frequencies:")
 for i in range(len(word_list)):
     print(f"{word_list[i]}: {frequency_list[i]}")
+
+input("\nPress Enter to exit...")
+
 
 input("\nPress Enter to exit...")   # keeps window open
