@@ -32,6 +32,9 @@ def is_sentence(text):
     return True
 
 user_sentence = input("Enter a sentence: ")
+print(is_sentence("Hello world."))
+print(is_sentence("hello world."))
+print(is_sentence("Hello world"))
 
 while not is_sentence(user_sentence):
     print("This does not meet the criteria for a sentence.")
